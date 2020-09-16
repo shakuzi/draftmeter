@@ -239,8 +239,7 @@ static void bluetooth_write(void)
  * 0x05 Send Last Save Data       0x0001                          10Byte saved Data.
  * 0x05 Send Device ID            0x0001                          Device ID
  * 0x06 Send Software ID          0x0001                          Software ID
- * 0x02 Are You Ok?               0x0001
- * 0x03 
+ * 0x07 Are You Alive?            0x0001                          0x0001 or 0x0000
  * 
  * 
  * 
