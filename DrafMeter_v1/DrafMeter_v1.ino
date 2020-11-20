@@ -144,7 +144,7 @@ static void tft_write(void)
 
 static void bluetooth_setup(void)
 {
-  SerialBT.begin("edistance"); //Bluetooth device name
+  SerialBT.begin("Medeci"); //Bluetooth device name
   Serial.println("The device started, now you can pair it with bluetooth!");
 }
 
@@ -169,7 +169,7 @@ static void range_measure_analog(void)
   range_analog = analogRead(32);
   range_analog_distance = (range_analog * 10) / 3;
   //Serial.print("range_analog: ");
-  Serial.println(range_analog_distance);
+  //Serial.println(range_analog_distance);
 }
 static void range_measure(void)
 {
@@ -215,7 +215,12 @@ static void bluetooth_write(void)
   }
   else
   {
-    SerialBT.println(distance);
+    SerialBT.print(0xED);
+    SerialBT.print(0x00);
+    SerialBT.print(0x02);
+    SerialBT.print(0x02);
+    SerialBT.print(distance);
+    SerialBT.println(0x71);
   }
 }
 
